@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>eBook Gallery</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      main {
+        flex-grow: 1;
+      }
+      .book-gallery {
+        height: 70vh;
+        border-radius: 5px;
+        overflow-y: scroll;
+      }
+      .book-gallery img {
+        width: 100%;
+        height: 80%;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+      .book-description {
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      footer {
+        padding: 10px 0;
+      }
+
+      /* themes styles */
+
+      body.light-theme {
+        background-color: #ffffff;
+        color: #000000;
+      }
+
+      body.dark-theme {
+        background-color: #5b5d5f;
+        color: #ffffff;
+      }
+
+      .light-theme .bg-dark {
+        background-color: #343a40 !important;
+      }
+
+      .dark-theme .bg-dark {
+        background-color: #212529 !important;
+      }
+
+      .light-theme footer {
+        background-color: #343a40;
+        color: #fff;
+      }
+
+      .dark-theme footer {
+        background-color: #212529;
+        color: #fff;
+      }
+
+      .light-theme .book-description {
+        background-color: #f9f9f9;
+      }
+
+      .dark-theme .book-description {
+        background-color: #3a3a3a;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="bg-dark text-white p-3 text-center">
+      <h1>eBook Library</h1>
+      <button id="theme-toggle" class="btn btn-secondary mt-2">
+        Switch to Light Theme
+      </button>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mt-4">
+      <div class="row">
+        <!-- Search Field -->
+        <div class="col-12 mb-4">
+          <div class="input-group">
+            <input
+              type="text"
+              placeholder="Search for a book..."
+              class="col-10 form-control"
+              id="search-input"
+            />
+            <button class="col-2 btn btn-primary" id="search-button">
+              Search
+            </button>
+          </div>
+        </div>
+
+        <!-- Book Gallery (left side) -->
+        <div class="col-md-8 book-gallery">
+          <div class="row" id="book-gallery">
+            <!-- Book entries will be populated dynamically -->
+          </div>
+        </div>
+
+        <!-- Book Description (right side) -->
+        <div class="col-md-4 book-description">
+          <h2 id="book-title">Book Title</h2>
+          <p id="book-description">Description of the book goes here.</p>
+          <p>
+            <strong>Author: </strong><span id="book-author">Author Name</span>
+          </p>
+          <button class="btn btn-primary" id="more-info-btn">More Info</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Modal Window -->
+    <div
+      class="modal fade"
+      id="bookModal"
+      tabindex="-1"
+      aria-labelledby="bookModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="bookModalLabel">Book Details</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <h2 id="modal-title">Book Title</h2>
+            <p id="modal-description">Full book description goes here.</p>
+            <p>
+              <strong>Author: </strong
+              ><span id="modal-author">Author Name</span>
+            </p>
+            <p>
+              <strong>Language: </strong
+              ><span id="modal-language">English</span>
+            </p>
+            <p><strong>Pages: </strong><span id="modal-pages">300</span></p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center">
+      <p>&copy; 2024 eBook Library</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="generated/index.js"></script>
+  </body>
+</html>
