@@ -1,0 +1,16 @@
+{
+  "name": "typescriptworks",
+  "version": "1.0.0",
+  "description": "Repository for all works on the subject “Special programming languages TypeScript”",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.7.2"
+  }
+}
